@@ -10,4 +10,4 @@ Clone the app
 Start LAMP / WAMP environment
 Requires PHP 5.6 or later
 Nothing more especial
-The code will be availble on http://localhost by defaut.
+The code will be availble on http://localhost by default.
