@@ -10,7 +10,7 @@ $response = "";
 if ($method == 'artist')
 	$response = file_get_contents($urlBase.$artistName.'?app_id='.$appId);
 else
-	$response = file_get_contents('https://rest.bandsintown.com/artists/'.$artistName.'/events?app_id='.$appId);
+	$response = file_get_contents($urlBase.$artistName.'/events?app_id='.$appId);
 
 echo $response;
 

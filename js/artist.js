@@ -6,7 +6,7 @@
 function getArtisData(){
 	
 
-	$.post("script/getArtistData.php", $('#frmArtistName').serialize(),function(result){  
+	$.post("script/getArtistData.php", $("#frmArtistName").serialize(),function(result){  
 	//and after the ajax request ends we check the text returned 
 
 		var artist = JSON.parse(result);
@@ -18,23 +18,21 @@ function getArtisData(){
 			$("#mainArtistImage").attr("src", artist.thumb_url);
 			if (artist.facebook_page_url != ""){
 				$("#mainArtistFacebookButtonLink").attr("href", artist.facebook_page_url).html(artist.facebook_page_url);
-			}else
+			}else{
 				$("#mainArtistFacebookButtonLink").attr("href", "#").html("Not Available");
-
+			}
 			$("#labelFacebookMainArtist").show();		
 			
 			$("#labelQuantNextEvents").html(artist.upcoming_event_count);
 			
 			if (artist.upcoming_event_count > 0){
 				
-				$.post("script/getArtistData.php?method=events", $('#frmArtistName').serialize(),function(resultEvents){
+				$.post("script/getArtistData.php?method=events", $("#frmArtistName").serialize(),function(resultEvents){
 					
 					var events = JSON.parse(resultEvents);
 					var outPutDiv = [];
 					var eventCount = 0;
 					$.each( events, function( key ) {
-					
-						   
 							var dateTime = events[key].datetime;
 							var mydate = new Date(dateTime);
 							dateTime = mydate.toLocaleString("en-US");
@@ -56,20 +54,18 @@ function getArtisData(){
 								outPutDiv.push("</div>");								
 						   outPutDiv.push("</a>");
 						   outPutDiv.push("<a href='"+url+"' target='_blank'><button type='button' class='btn btn-outline-success'>See Event Details</button></a>");
-						   offers = events[key].offers;
+						   var offers = events[key].offers;
 						   
 						   outPutDiv.push("<table class='table'>");
 						   outPutDiv.push("<thead class='thead-light'><tr><th>&nbsp;&nbsp;Offer&nbsp;&nbsp;</th><th>&nbsp;&nbsp;Status&nbsp;&nbsp;</th></tr></thead>");
-		
-						   
-							outPutDiv.push("<tbody>");
+					   
+						   outPutDiv.push("<tbody>");
 						   $.each( offers, function( index, value ) {
 								outPutDiv.push("<tr>");
 									outPutDiv.push("<td>&nbsp;&nbsp;"+offers[index]["type"] +"&nbsp;&nbsp;</td>");
 									outPutDiv.push("<td>&nbsp;&nbsp;"+offers[index]["status"] +"&nbsp;&nbsp;</td>");
-								outPutDiv.push("</tr>");;
+								outPutDiv.push("</tr>");
 						   });
-						
 						   outPutDiv.push("</tbody>");						   
 						   outPutDiv.push("</table></br></br></br>");				
 					});
@@ -77,7 +73,7 @@ function getArtisData(){
 					$("#nextEvents").html(outPutDiv);				
 					
 				});// post end
-				$('html, body').animate({
+				$("html, body").animate({
 					scrollTop: $("#mainArtistName").offset().top - 110
 				}, 2000);					
 			}else
