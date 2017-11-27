@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Next Gig</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Next Gig</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead">
+      <div class="overlay">
+        <div class="container">
+          <h1 class="display-3 text-white">Find your favorite Artist Next Gig !</h1>
+          <h2 class="display-4 text-white">Just fill his name below</h2></br>
+			<form class="form-inline justify-content-center" name="frmArtistName" id="frmArtistName">
+			  <div class="form-group mx-sm-3">
+				<input type="text" class="form-control" id="txArtistName" name="txArtistName" placeholder="Artist Name">
+			  </div>
+			  <button type="button" class="btn btn-primary" id="btnGo" name="btnGo" >Let me see</button>
+			</form>		  
+        </div>
+      </div>
+    </header>
+
+    <section id="mainSection" class="main-section">
+      <div class="container">
+        <div class="row align-items-top ">
+          <div class="col-md-6">
+            <div class="p-5">
+              <h2 id="mainArtistName" class="display-4">Artist Name</h2>
+			   <p id="labelFacebookMainArtist" class="facebook-link">Facebook: 
+				<a id="mainArtistFacebookButtonLink" target="_blank" href="">facebook_url</a>
+				<h4>Next Events: <span id="labelQuantNextEvents" class="badge badge-light">0</span></h4>
+			  </p>			
+              <img id="mainArtistImage" class="img-fluid rounded-circle" src="#" alt="">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-5">
+				<div id="nextEvents"></div>			  
+            </div>			
+          </div>
+        </div>
+      </div>
+    </section>
+	<section>&nbsp;</section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Next Gig 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="js/artist.js"></script>
+	
+	  <script type="text/javascript">
+		 $('#btnGo').attr('onclick','getArtisData()');	
+	  </script>		
+
+  </body>
+
+</html>
